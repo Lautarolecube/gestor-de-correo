@@ -1,5 +1,6 @@
 package main;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +66,31 @@ public class GestorContactos implements IEliminarContacto, ICrearContacto {
         return resultados;
         }
         
+=======
+import java.util.List;
+
+public class GestorContactos implements IEliminarContacto, ICrearContacto, IContacto {
+
+
+        public String nombre;
+        public String email;
+
+        public GestorContactos(String nombre, String email) {
+            this.nombre = nombre;
+            this.email = email;
+        }
+        
+        void crearContacto(String nombre, String email){
+
+            setvalidarNombre(nombre);
+            validarEmail(email);
+
+            this.nombre = nombre;
+            this.email = email;
+
+        }
+
+>>>>>>> f76f3723ff5fa2635ed3b6260ea6c0776cb2fb10
         void validarEmail(String email){
 
             if (email == null) {
@@ -83,6 +109,7 @@ public class GestorContactos implements IEliminarContacto, ICrearContacto {
             }
         }
 
+<<<<<<< HEAD
     
         
         //Metodos
@@ -99,6 +126,30 @@ public class GestorContactos implements IEliminarContacto, ICrearContacto {
 
 
 
+=======
+        //getters
+        public String getEmail() {
+            return email;
+        }
+
+        String getNombre() {
+            return nombre;
+        }
+
+        //setters
+        void setEmail(String email) {
+            this.email = email;
+        }
+
+        void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+    
+        
+        <métodos para gestionar contactos>
+
+        ListaContactos contactos;
+>>>>>>> f76f3723ff5fa2635ed3b6260ea6c0776cb2fb10
 
 
 }
