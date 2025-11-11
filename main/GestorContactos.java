@@ -25,27 +25,10 @@ public class GestorContactos implements IEliminarContacto, ICrearContacto {
         public void BusquedaContacto(){
 
         this.listaContactos = new ArrayList<>();
-
-        }
-
-        //Getters
-        public String getEmail(String email) {
-            return email;
-        }
-
-        String getNombre(String nombre) {
-            return nombre;
-        }
-
-        //setters
-        void setEmail(String email) {
-            this.email = email;
-        }
-
-        void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
         
+        }
+
+
         public List<Contacto> buscarPorNombre(String criterio){
 
         List<Contacto> resultados = new ArrayList<>();
@@ -62,7 +45,20 @@ public class GestorContactos implements IEliminarContacto, ICrearContacto {
             }
         
         return resultados;
-        }
         
+        }
+
+        @Override
+        public void crearContacto() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'crearContacto'");
+        }
+
+        @Override
+        public void EliminarContacto() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'EliminarContacto'");
+        }
+
     }
 

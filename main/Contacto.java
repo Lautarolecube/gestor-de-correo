@@ -53,6 +53,11 @@ public class Contacto {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public String getContacto() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getContacto'");
+    }
     
     
 }

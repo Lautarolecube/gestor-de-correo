@@ -1,41 +1,32 @@
 package main;
 
-public abstract class EditarContacto {
-
-    //Atributos
-    private String nombre;
-    private String email;
+import java.util.ArrayList;
+import java.util.List;
 
 
+public class EditarContacto {
+
+    protected GestorContactos gestor;
+    protected String email;
+    protected String nombre;
+   
     //Constructor vacío
     public EditarContacto() {
+
     }
+
 
     //Getters
-
-    private String nombre;
-    private String email;
-
-    public EditarContacto() {
-    }
-
-    public abstract void editarContacto();
-
-    public String getNombre() {
+    public String getContacto() {
         return nombre;
-    }
-
-
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getEmail() {
         return email;
     }
+
     //Setters
-    public void setNombre(String nombre) {
+    public void setContacto(String nombre) {
         this.nombre = nombre;
     }
 
@@ -44,12 +35,20 @@ public abstract class EditarContacto {
     }
 
     //Métodos
-    public abstract void editarContacto();
+    public List<Contacto> listaDeContacto(){
+        List<Contacto> resultados = new ArrayList<>();
+        return resultados;
+    }
 
+    public static void editarNombre(Contacto contacto, String nuevoNombre){
 
+        contacto.setNombre(nuevoNombre);
 
-    public void setEmail(String email) {
-        this.email = email;
+    }
+
+    public static void editarMail(Contacto contacto, String nuevoEmail){
+
+        contacto.setEmail(nuevoEmail);
     }
 
 }
