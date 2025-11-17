@@ -15,5 +15,7 @@ public interface ISend {
     // Devuelve el estado del envío (por ejemplo, "Enviado", "Error").
     String getStatus();
 
+    void send();
+
     
 }

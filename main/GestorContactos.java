@@ -1,9 +1,10 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class GestorContactos implements IEliminarContacto, ICrearContacto {
+public class GestorContactos {
 
         //Atributos propios
         private List<Contacto> listaContactos = new ArrayList<>();
@@ -29,7 +30,7 @@ public class GestorContactos implements IEliminarContacto, ICrearContacto {
         }
 
 
-        public List<Contacto> buscarPorNombre(String criterio){
+        public List<Contacto> BuscarPorNombre(String criterio){
 
         List<Contacto> resultados = new ArrayList<>();
 
@@ -48,16 +49,35 @@ public class GestorContactos implements IEliminarContacto, ICrearContacto {
         
         }
 
-        @Override
-        public void crearContacto() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'crearContacto'");
+
+        public List<Contacto> eliminarContacto(String criterio){
+
+        List<Contacto> eliminados = new ArrayList<>();
+        String criterioLower = criterio.toLowerCase();
+        
+        Iterator<Contacto> itera = listaContactos.iterator();
+
+        while(itera.hasNext()){
+            Contacto contacto = itera.next();
+            String emailLower = contacto.getEmail().toLowerCase();
+
+            if(emailLower.contains(criterioLower)){
+                eliminados.add(contacto);
+                itera.remove();
+            }
         }
 
-        @Override
-        public void EliminarContacto() {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'EliminarContacto'");
+        return eliminados;
+    }
+
+
+
+        public void crearContacto(String nombre, String email){
+
+        Contacto contacto = new Contacto(nombre, email);
+        
+        this.add(contacto);
+
         }
 
     }

@@ -13,19 +13,18 @@ public class CrearContactoTest {
 public void CrearContactoTest(){
     // Configurar el entorno de prueba
     GestorContactos listaContactos = new GestorContactos();
+    String nombre = "Lautaro Lopez Lecube";
+    String email = "lautarolecube@gmail.com";
 
-    Contacto contacto = new Contacto();
-    contacto.setNombre("Lautaro Lopez Lecube");
-    contacto.setEmail("lautarolecube@gmail.com");
+    Contacto contacto = new Contacto(nombre, email);
 
     listaContactos.add(contacto);
     
    // Usa el método correcto: assertEquals
-    Assert.assertEquals("Lautaro Lopez Lecube", contacto.getNombre());
-
+    Assert.assertEquals(nombre, contacto.getNombre());
+    Assert.assertEquals(email, contacto.getEmail());
     Assert.assertEquals( 1, listaContactos.tamañoLista());
 
     }
-
-
+    
 }

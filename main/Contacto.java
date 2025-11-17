@@ -8,19 +8,16 @@ public class Contacto {
 
     //Constructor con parámetros
     public Contacto(String nombre, String email) {
+        validarEmail(email);
+        validarNombre(nombre);
         this.nombre = nombre;
         this.email = email;
-    }
-
-    //Constructor vacío
-    public Contacto(){
-        
     }
     
     //Métodos
     public void validarEmail(String email){
 
-            if (email == null) {
+            if (email == null && email.isEmpty() && email.contains("@")) {
 
                 throw new IllegalArgumentException("El campo email debe completarse");
          
@@ -29,14 +26,14 @@ public class Contacto {
 
     public void validarNombre(String nombre){
 
-            if (nombre == null) {
+            if (nombre == null && nombre.isEmpty()) {
 
                 throw new IllegalArgumentException("El campo nombre debe completarse");
          
             }
         }
 
-    //getters
+    //Getters
     public String getEmail() {
         return email;
     }
@@ -45,19 +42,13 @@ public class Contacto {
         return nombre;
     }
 
-    //setters
+    //Setters
     public void setEmail(String email) {
             this.email = email;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getContacto() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getContacto'");
-    }
-    
+    }    
     
 }

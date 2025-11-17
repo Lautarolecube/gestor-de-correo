@@ -2,22 +2,20 @@ package main;
 
 import java.util.List;
 
-
 //Clase que implementa la interfaz ISend para enviar correos electrónicos.
-
 public class SendMail implements ISend {
-    private String subject;
-    private String content;
-    private String sender;
+    private String asunto;
+    private String contenido;
+    private String remitente;
     private List<String> recipients;
     private boolean important;
     private String status;
 
     // Constructor
-    public SendMail(String subject, String content, String sender, List<String> recipients) {
-        this.subject = subject;
-        this.content = content;
-        this.sender = sender;
+    public SendMail(String asunto, String contenido, String remitente, List<String> recipients, boolean important, String status) {
+        this.asunto = asunto;
+        this.contenido = contenido;
+        this.remitente = remitente;
         this.recipients = recipients;
         this.important = false;
         this.status = "pending";
@@ -27,8 +25,7 @@ public class SendMail implements ISend {
     //Info del correo
     @Override
     public String[] getEmailInfo() {
-        String recs = String.join(", ", recipients);
-        return new String[]{subject, content, sender, recs};
+        return new String[]{asunto, contenido, remitente, String.join(", ", recipients)};
     }
 
     // Envía el correo electrónico.
@@ -51,9 +48,9 @@ public class SendMail implements ISend {
     }
 
     // Getters para tests o uso externo
-    public String getSubject() { return subject; }
-    public String getContent() { return content; }
-    public String getSender() { return sender; }
+    public String getSubject() { return asunto; }
+    public String getContent() { return contenido; }
+    public String getSender() { return remitente; }
     public List<String> getRecipients() { return recipients; }
     public boolean isImportant() { return important; }
 }

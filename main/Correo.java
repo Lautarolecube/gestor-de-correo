@@ -2,73 +2,65 @@ package main;
 
 import java.util.List;
 
-public class Correo implements ISchedule, CorreoSpam , ISend , ICrearContacto , IInboxReceiver{
+public class Correo implements ICorreo {
 
-    private String subject;
-    private String content;
-    private String sender;
-    private String contacto;
-    private List <String> recipients;
+    private String asunto;
+    private String contenido;
+    private String remitente;
+    private List <String> contactos;
     private String status;
-    private String fecha;
-    
-    public Correo(String subject, String content, String sender, List<String> recipients, String fecha, String contacto) {
-        this.subject = subject;
-        this.content = content;
-        this.sender = sender;
-        this.recipients = recipients;
+    private boolean importante;
+    private String contacto;
+
+
+    public Correo(String asunto, String contenido, String remitente, List<String> contactos, String status, boolean importante, String contacto) {
+        this.asunto = asunto;
+        this.contenido = contenido;
+        this.remitente = remitente;
+        this.contactos = contactos;
         this.status = "pending";
-        this.fecha = fecha;
+        this.contacto = contacto;
     }
     
-    //getters
-    public String getSubject() {
-        return subject;
+    //Getters
+    public String getAsunto() {
+        return asunto;
     }
-    public String getContent() {
-        return content;
+    public String getContent(){
+        return contenido;
     }
-    public String getSender() {
-        return sender;
+    public String getRemitente() {
+        return remitente ;
     }
-    public List<String> getRecipients() {
-        return recipients;
+    public List<String> getcontactos() {
+        return contactos;
     }
     public String getStatus() {
         return status;
     }
 
-    public String getFecha() {
-        return fecha;
+    public List<String> getContacto() {
+        return contactos;
     }
 
-    public String getContacto() {
-        return contacto;
+    //Setters
+    public void setAsunto(String asunto) {
+        this.asunto = asunto;
     }
 
-    //setters
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setContent(String contenido) {
+        this.contenido = contenido;
+
+    public void setRemitente(String remitente){
+        this.remitente = remitente;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
-
-    public void setRecipients(List<String> recipients) {
-        this.recipients = recipients;
+    public void setcontactos(List<String> contactos) {
+        this.contactos = contactos;
     }
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
     }
 
     public void setContacto(String contacto) {
@@ -76,4 +68,5 @@ public class Correo implements ISchedule, CorreoSpam , ISend , ICrearContacto , 
     }
 
 
+    }
 }
