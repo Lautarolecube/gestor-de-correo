@@ -2,7 +2,7 @@ package main;
 
 import java.util.List;
 
-public class BandejaDeBorradores {
+public class BandejaDeBorradores implements IBorradores{
 
     private IBorradores almacenamientoBorrador;
 

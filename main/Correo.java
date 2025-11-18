@@ -1,5 +1,6 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Correo implements ICorreo {
@@ -7,40 +8,37 @@ public class Correo implements ICorreo {
     private String asunto;
     private String contenido;
     private String remitente;
-    private List <String> contactos;
-    private String status;
-    private boolean importante;
     private String contacto;
+    private boolean importante;
+    private String status;
 
 
-    public Correo(String asunto, String contenido, String remitente, List<String> contactos, String status, boolean importante, String contacto) {
+    public Correo(String asunto, String contenido, String remitente, String contacto, boolean importante, String status) {
         this.asunto = asunto;
         this.contenido = contenido;
         this.remitente = remitente;
-        this.contactos = contactos;
-        this.status = "pending";
         this.contacto = contacto;
+        this.importante = importante;
+        this.status = status;
     }
     
     //Getters
     public String getAsunto() {
         return asunto;
     }
-    public String getContent(){
+    public String getContenido(){
         return contenido;
     }
     public String getRemitente() {
         return remitente ;
     }
-    public List<String> getcontactos() {
-        return contactos;
-    }
+
     public String getStatus() {
         return status;
     }
 
-    public List<String> getContacto() {
-        return contactos;
+    public String getContacto() {
+        return contacto;
     }
 
     //Setters
@@ -48,15 +46,12 @@ public class Correo implements ICorreo {
         this.asunto = asunto;
     }
 
-    public void setContent(String contenido) {
+    public void setContenido(String contenido) {
         this.contenido = contenido;
+    }
 
     public void setRemitente(String remitente){
         this.remitente = remitente;
-    }
-
-    public void setcontactos(List<String> contactos) {
-        this.contactos = contactos;
     }
 
     public void setStatus(String status) {
@@ -67,6 +62,35 @@ public class Correo implements ICorreo {
         this.contacto = contacto;
     }
 
-
+     @Override
+    public void marcarImportante() {
+        this.importante = true;
     }
+
+    @Override
+    public boolean esImportante() {
+        return importante;
+    }
+
+    @Override
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public void marcarLeido() {
+        this.leido = true;
+    }
+
+    @Override
+    public void marcarNoLeido() {
+        this.leido = false;
+    }
+
+
+
 }

@@ -11,7 +11,6 @@ public class Borradores implements IBorradores {
     private Map<String, Correo> almacenDeBorradores = new HashMap<>();
 
 
-    @Override
     public String guardarBorrador(Correo borrador) {
         if (borrador == null) {
             return null;
